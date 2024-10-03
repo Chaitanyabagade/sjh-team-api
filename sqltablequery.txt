@@ -1,0 +1,47 @@
+create table accounts(
+    id int AUTO_INCREMENT PRIMARY KEY,
+    user_name  varchar(30) unique,
+    mobile_no varchar(10),
+    pass varchar(30),
+    team varchar(30)
+    );
+
+
+    create table deposite(
+    id int PRIMARY key AUTO_INCREMENT,
+    mobile_no varchar(10),
+    user_name varchar(30),
+    deposite bigint,
+    team varchar(30)
+    );
+
+    create table loan(
+    id int PRIMARY key AUTO_INCREMENT,
+    user_name varchar(30),
+    mobile_no varchar(10),
+    team varchar(30),
+    loan_amt bigint,
+    loan_type varchar(15),
+    get_date varchar(10),
+    r_date varchar(10),
+    loan_status varchar(15)
+    );
+
+    create table intrest(
+        id int PRIMARY key AUTO_INCREMENT,
+        user_name varchar(30),
+        intrest bigint,
+        team varchar(30),
+        Date varchar(10),
+        note text
+    );
+      create table penalty(
+        id int PRIMARY key AUTO_INCREMENT,
+        user_name varchar(30),
+        penalty int,
+        team varchar(30),
+        Date varchar(10),
+        note text
+    );
+
+    
