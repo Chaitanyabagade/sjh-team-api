@@ -10,14 +10,14 @@ create table accounts(
     create table deposite(
     id int PRIMARY key AUTO_INCREMENT,
     mobile_no varchar(10),
-    user_name varchar(30),
+    user_name varchar(30) unique,
     deposite bigint,
     team varchar(30)
     );
 
     create table loan(
     id int PRIMARY key AUTO_INCREMENT,
-    user_name varchar(30),
+    user_name varchar(30) ,
     mobile_no varchar(10),
     team varchar(30),
     loan_amt bigint,

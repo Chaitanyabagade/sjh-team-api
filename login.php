@@ -16,7 +16,7 @@
         $content=$name."   ".$mobile."\n";
         file_put_contents("user_login_log_file.txt", $content, FILE_APPEND); 
      
-        $sql="SELECT * FROM `accounts` WHERE mobile_no ='$mobile' AND pass='$pass'";
+        $sql="SELECT * FROM `accounts` WHERE user_name='$name' AND mobile_no ='$mobile' AND pass='$pass'";
         $res=mysqli_query($conn,$sql);
 
         if($res){
