@@ -43,5 +43,12 @@ create table accounts(
         Date varchar(10),
         note text
     );
+create table expendature(
+        id int PRIMARY key AUTO_INCREMENT, 
+        expendature int,
+        team varchar(30),
+        Date varchar(10),
+        note text
+    );
 
     
