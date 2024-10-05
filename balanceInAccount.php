@@ -8,8 +8,8 @@
         exit();
      }
      else{ 
-           // $team=$_POST['name'];
-            $team='chaitanya';
+            $team=$_POST['name'];
+           
             $balanceAtAccount=(  (getTotalDeposite($team,$conn) + getTotalIntrest($team,$conn) + getTotalPenalty($team,$conn)  )-  (getTotalGetedLoan($team,$conn)+getTotalExpendature($team,$conn) ) );
             $conn->close();
             echo $balanceAtAccount;

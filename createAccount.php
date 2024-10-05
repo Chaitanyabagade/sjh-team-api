@@ -12,56 +12,38 @@
         $mobile=$_POST['mobile'];
         $pass=$_POST['pass'];
         $adminPass=$_POST['adminPass'];
-      if($adminPass==='Chaitanya@701'){
-        $team="chaitanya";
-        $sql="INSERT INTO `accounts` (`id`, `user_name`, `mobile_no`, `pass`,`team`) VALUES (NULL, '$name', '$mobile', '$pass','$team')";
+        $team=null;
+
+        if($adminPass==='Chaitanya@701'){
+           $team="chaitanya";
+        }
+        else if($adminPass==='Tushar@303'){
+           $team="tushar";
+        }
+        else if($adminPass==='Onkar@999'){
+           $team="onkar";
+        }
+        else{
+          echo "admin password is worng";
+          $conn->close();
+          exit(0);
+        }
+        $sql1="INSERT INTO `accounts` (`id`, `user_name`, `mobile_no`, `pass`,`team`) VALUES (NULL, '$name', '$mobile', '$pass','$team')";
+        $res1=mysqli_query($conn,$sql1);
+        $res2=0;
+        if($res1){
+            $sql2="INSERT INTO `deposite` (`id`, `mobile_no`, `user_name`, `deposite`, `team`) VALUES (NULL, '$mobile', '$name', 0, '$team');";
+            $res2=mysqli_query($conn,$sql2); 
+        }
+        $conn->close();
         
-        $sql2="INSERT INTO `deposite` (`id`, `mobile_no`, `user_name`, `deposite`, `team`) VALUES (NULL, '$mobile', '$name', 0, '$team');";
-        
-       
-       
-        $res=mysqli_query($conn,$sql);
-        $res2=mysqli_query($conn,$sql2);
-      
-
-        if($res && $res2 ){
+        if($res1 && $res2){
             echo "success";
         }
         else{
              echo 'error to create';
         }
-      }
-      else if($adminPass==='Tushar@303'){
-        $team="tushar";
-        $sql="INSERT INTO `accounts` (`id`, `user_name`, `mobile_no`, `pass`,`team`) VALUES (NULL, '$name', '$mobile', '$pass','$team')";
-        $sql2="INSERT INTO `deposite` (`id`, `mobile_no`, `user_name`, `deposite`, `team`) VALUES (NULL, '$mobile', '$name', 0, '$team');";
-        $res2=mysqli_query($conn,$sql2);
-        $res=mysqli_query($conn,$sql);
-
-        if($res && $res2){
-            echo "success";
-        }
-        else{
-             echo 'error to create';
-        }
-      }
-      else if($adminPass==='Onkar@999'){
-        $team="onkar";
-        $sql="INSERT INTO `accounts` (`id`, `user_name`, `mobile_no`, `pass`,`team`) VALUES (NULL, '$name', '$mobile', '$pass','$team')";
-         $sql2="INSERT INTO `deposite` (`id`, `mobile_no`, `user_name`, `deposite`, `team`) VALUES (NULL, '$mobile', '$name', 0, '$team');";
-        $res2=mysqli_query($conn,$sql2);
-        $res=mysqli_query($conn,$sql);
-
-        if($res && $res2){
-            echo "success";
-        }
-        else{
-             echo 'error to create';
-        }
-      }
-      else{
-          echo "Admin Password is Incorrect";
-      }
-      $conn->close();
-     }
+      } 
+    
+    
 ?>

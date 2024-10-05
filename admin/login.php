@@ -39,6 +39,7 @@
         }     
         
         else{
+            http_response_code(202);
             echo $outp;
         }
      

@@ -8,8 +8,8 @@
         exit();
      }
      else{ 
-           // $team=$_POST['name'];
-            $team='chaitanya';
+            $team=$_POST['name'];
+           
              http_response_code(200);
             $query ="SELECT expendature,team, Date, note FROM `expendature` WHERE team='$team'";
             $stmt=$conn->prepare($query);

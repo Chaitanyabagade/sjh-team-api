@@ -10,7 +10,7 @@
      else{ 
             $team=$_POST['name'];
            
-             http_response_code(200);
+            http_response_code(200);
             $query ="SELECT user_name,deposite,team FROM `deposite` WHERE team='$team'";
             $stmt=$conn->prepare($query);
             $stmt->execute();
