@@ -12,7 +12,8 @@ create table accounts(
     mobile_no varchar(10),
     user_name varchar(30) unique,
     deposite bigint,
-    team varchar(30)
+    team varchar(30),
+    email_id varchar(30)
     );
 
 create table penalty(

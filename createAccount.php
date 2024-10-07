@@ -11,6 +11,7 @@
         $name=$_POST['name'];
         $mobile=$_POST['mobile'];
         $pass=$_POST['pass'];
+        $email=$_POST['email'];
         $adminPass=$_POST['adminPass'];
         $team=null;
 
@@ -28,7 +29,7 @@
           $conn->close();
           exit(0);
         }
-        $sql1="INSERT INTO `accounts` (`id`, `user_name`, `mobile_no`, `pass`,`team`) VALUES (NULL, '$name', '$mobile', '$pass','$team')";
+        $sql1="INSERT INTO `accounts` (`id`, `user_name`, `mobile_no`, `pass`,`team`,`email_id`) VALUES (NULL, '$name', '$mobile', '$pass','$team','$email')";
         $res1=mysqli_query($conn,$sql1);
         $res2=0;
         if($res1){
