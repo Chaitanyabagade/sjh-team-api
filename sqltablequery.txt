@@ -15,27 +15,7 @@ create table accounts(
     team varchar(30)
     );
 
-    create table loan(
-    id int PRIMARY key AUTO_INCREMENT,
-    user_name varchar(30) ,
-    mobile_no varchar(10),
-    team varchar(30),
-    loan_amt bigint,
-    loan_type varchar(15),
-    get_date varchar(10),
-    r_date varchar(10),
-    loan_status varchar(15)
-    );
-
-    create table intrest(
-        id int PRIMARY key AUTO_INCREMENT,
-        user_name varchar(30),
-        intrest bigint,
-        team varchar(30),
-        Date varchar(10),
-        note text
-    );
-      create table penalty(
+create table penalty(
         id int PRIMARY key AUTO_INCREMENT,
         user_name varchar(30),
         penalty int,
@@ -49,6 +29,22 @@ create table expendature(
         team varchar(30),
         Date varchar(10),
         note text
-    );
+ );
 
-    
+ create table loan(
+     id int PRIMARY key AUTO_INCREMENT,
+     user_name varchar(30),
+     team varchar(10),
+     loan_amt bigint,
+     loan_amt_returned bigint,
+     loan_amt_intrest int,
+     loan_amt_intrest_returned int,
+     loan_type varchar(15),
+     EMI_amt int,
+     EMI_duration int,
+     EMI_count int,
+     EMI_rate float(2),
+     Loan_date varchar(10),
+     status varchar(15),
+     last_paid_date varchar(10)
+ );
