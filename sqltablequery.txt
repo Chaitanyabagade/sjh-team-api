@@ -49,3 +49,21 @@ create table expendature(
      status varchar(15),
      last_paid_date varchar(10)
  );
+
+ Create table cashbook(
+    id int PRIMARY key AUTO_INCREMENT,
+    user_name varchar(30),
+    amount bigint,
+    note text,
+    team varchar(30)
+);
+
+Create table adminName(
+    id int PRIMARY key AUTO_INCREMENT,
+    team varchar(30),
+    admin_name varchar(30),
+    admin_mobile_no varchar(10),
+    admin_password varchar(50),
+    permision int
+    
+);

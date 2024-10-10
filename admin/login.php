@@ -1,46 +1,40 @@
 <?php
-     header('Access-Control-Allow-Origin: *');
+        header('Access-Control-Allow-Origin: *');
+        include '../configuration.php';
+        $conn=new mysqli($server,$origin,$pass,$databasename);
     
+        $outp="";
+        
         $name=$_POST['name'];
         $mobile=$_POST['mobile'];
         $pass=$_POST['pass'];
-        $outp="";
-     
-        if($name==='chaitanya bagade' && $pass==='Chaitanya@701' && $mobile==="9307084680"){  // change this 
-            http_response_code(200);
-            $team='chaitanya';                             // change this allso 
-            $outp.='{"mobile_no":"'.$mobile.'",';
-            $outp.='"user_name":"'.$name.'",';
-            $outp.='"team":"'.$team.'",';
-            $outp.='"Status":"200"}';
-            echo $outp;
-            
-        }   
-        else if($name==='tushar regude' && $pass==='Tushar@303' && $mobile==="9370575370"){  // change this 
-            http_response_code(200);
-            $team='tushar';                             // change this allso 
-            $outp.='{"mobile_no":"'.$mobile.'",';
-            $outp.='"user_name":"'.$name.'",';
-            $outp.='"team":"'.$team.'",';
-            $outp.='"Status":"200"}';
-            echo $outp;
-            
-        }   
-        
-        else if($name==='onkar zendekar' && $pass==='Onkar@999' && $mobile==="9075648109"){  // change this 
-            http_response_code(200);
-            $team='onkar';                             // change this allso 
-            $outp.='{"mobile_no":"'.$mobile.'",';
-            $outp.='"user_name":"'.$name.'",';
-            $outp.='"team":"'.$team.'",';
-            $outp.='"Status":"200"}';
-            echo $outp;
-            
-        }     
-        
-        else{
-            http_response_code(202);
-            echo $outp;
+
+        if(mysqli_connect_error()){
+           echo mysqli_connect_error();
+           exit();
         }
-     
+        else{
+            $sqlcheckadmin="SELECT * FROM `adminname` WHERE admin_name='$name' AND admin_mobile_no ='$mobile' AND admin_password='$pass' AND permision=1";
+            $rescheckadmin = $conn->query($sqlcheckadmin);
+            
+            if($rescheckadmin->num_rows > 0){
+                  $rowcheck = $rescheckadmin->fetch_assoc();
+                  $team=$rowcheck['team'];
+                  http_response_code(200); 
+                  $outp.='{"mobile_no":"'.$mobile.'",';
+                  $outp.='"user_name":"'.$name.'",';
+                  $outp.='"team":"'.$team.'",';
+                  $outp.='"Status":"200"}';
+                  echo $outp;
+            }
+            else{
+                http_response_code(202);
+                echo $outp;
+            }
+             
+            $conn->close();
+        }  
+    
 ?>
+
+

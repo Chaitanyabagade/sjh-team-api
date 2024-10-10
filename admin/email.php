@@ -22,7 +22,7 @@
        'allow_self_signed'=>false
     ));
     if(!$mail->Send()){
-       echo $mail->ErrorInfo;
+       return 'notsent';
     }else{
        return 'Sent';
     }
