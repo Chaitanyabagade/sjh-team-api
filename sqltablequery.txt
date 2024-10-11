@@ -67,3 +67,11 @@ Create table adminName(
     permision int
     
 );
+
+create table remuneration(
+        id int PRIMARY key AUTO_INCREMENT, 
+        remuneration int,
+        team varchar(30),
+        Date varchar(10),
+        note text
+ );
