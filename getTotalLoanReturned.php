@@ -9,7 +9,6 @@
      }
      else{ 
              $team=$_POST['name'];
-           
              http_response_code(200);
              $sql = "SELECT * from `loan` where `team`='$team'";
              $result = $conn->query($sql);
