@@ -54,7 +54,7 @@ if (mysqli_connect_error()) {
 
 
 
-         $sql = "INSERT INTO `loan` (`id`, `user_name`, `team`, `loan_amt`, `loan_amt_returned`, `loan_amt_intrest`, `loan_amt_intrest_returned`, `loan_type`, `EMI_amt`, `EMI_duration`, `EMI_count`, `EMI_rate`, `Loan_date`,`status`) VALUES (NULL, '$name', '$team', '$amount',0, '$intrest',0, '$loan_type', '$EMI_amt', '$EMI_duration',0, '$EMI_rate', '$get_date','Pending..')";
+         $sql = "INSERT INTO `loan` (`id`, `user_name`, `team`, `loan_amt`, `loan_amt_returned`, `loan_amt_intrest`, `loan_amt_intrest_returned`, `loan_type`, `EMI_amt`, `EMI_duration`, `EMI_count`, `EMI_rate`, `Loan_date`,`status`,`loan_provider`) VALUES (NULL, '$name', '$team', '$amount',0, '$intrest',0, '$loan_type', '$EMI_amt', '$EMI_duration',0, '$EMI_rate', '$get_date','Pending..','$adminname')";
          $res = mysqli_query($conn, $sql);
 
 

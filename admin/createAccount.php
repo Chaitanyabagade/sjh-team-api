@@ -15,13 +15,14 @@ if (mysqli_connect_error()) {
    $adminName = $_POST['adminName'];
    $adminMobil = $_POST['adminMobile'];
    $teamName = $_POST['teamName'];
-   $team = null;
+   
 
    $sql3 = "SELECT * FROM `adminname` WHERE admin_password = '$adminPass' AND admin_name='$adminName' AND admin_mobile_no='$adminMobil' AND team='$teamName' ";
    $result2 = $conn->query($sql3);
    if ($result2->num_rows > 0) {
       $row = $result2->fetch_assoc(); // Use $result2 instead of $result
       if ($row['permision'] == 1) {
+         $team = $row['team'];
          $sql1 = "INSERT INTO `accounts` (`id`, `user_name`, `mobile_no`, `pass`,`team`,`email_id`) VALUES (NULL, '$name', '$mobile', '$pass','$team','$email')";
          $res1 = mysqli_query($conn, $sql1);
          $res2 = 0;
