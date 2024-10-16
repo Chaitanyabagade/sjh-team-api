@@ -16,7 +16,6 @@
             $stmt->execute();
             $resultSet = $stmt->get_result();
             $loan = $resultSet->fetch_all(MYSQLI_ASSOC);
-            
             echo json_encode($loan);
      }
 ?>

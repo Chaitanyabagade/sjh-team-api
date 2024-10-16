@@ -8,8 +8,8 @@
         exit();
      }
      else{ 
-            // $team=$_POST['name'];
-            $team='chaitanya';
+            $team=$_POST['name'];
+          
              http_response_code(200);
              $sql = "SELECT * from `remuneration` where `team`='$team'";
              $result = $conn->query($sql);

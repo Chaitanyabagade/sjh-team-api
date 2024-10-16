@@ -10,7 +10,7 @@
      else{ 
             $team=$_POST['name'];
            
-            $balanceAtAccount=(  (getTotalDeposite($team,$conn) + getTotalIntrest($team,$conn) + getTotalPenalty($team,$conn)  )-  ((TotalDispachedLoan($team,$conn) - returnedTotalLoan($team,$conn))+getTotalExpendature($team,$conn) ) );
+            $balanceAtAccount=(  (getTotalDeposite($team,$conn) + getTotalIntrest($team,$conn) + getTotalPenalty($team,$conn)  )-  ((TotalDispachedLoan($team,$conn) - returnedTotalLoan($team,$conn))+getTotalExpendature($team,$conn) + getTotalRemunaration($team,$conn) ) );
             $conn->close();
             echo $balanceAtAccount;
              
@@ -83,4 +83,14 @@
      
      return $total;
     }
+    function getTotalRemunaration($team,$conn){
+        $sql = "SELECT * from `remuneration` where `team`='$team'";
+        $result = $conn->query($sql);
+        $total=0;
+        while($row = mysqli_fetch_array($result)){
+            $total+=$row['remuneration'];
+        }
+        
+        return $total;
+       }
 ?>

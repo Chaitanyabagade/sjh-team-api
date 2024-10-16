@@ -59,7 +59,7 @@ create table expendature(
     team varchar(30)
 );
 
-Create table adminName(
+Create table adminname(
     id int PRIMARY key AUTO_INCREMENT,
     team varchar(30),
     admin_name varchar(30),
