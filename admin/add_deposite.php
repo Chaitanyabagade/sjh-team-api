@@ -61,7 +61,7 @@ else {
       $amount_cash = $amount;
       $note="Add Deposite Of Member ".$name." ".$amount." In your Bank Account";
 
-      $sqlcashbook = "INSERT INTO `cashbook` (`id`, `user_name`, `amount`, `note`, `team`) VALUES (NULL, '$adminName', '$amount_cash', '$note', '$team')";
+      $sqlcashbook = "INSERT INTO `cashbook` (`id`, `user_name`, `amount`, `note`, `team`,`last_paid_date`) VALUES (NULL, '$adminName', '$amount_cash', '$note', '$team',now())";
       $result_cashbook = mysqli_query($conn, $sqlcashbook);
       //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
       

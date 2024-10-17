@@ -11,8 +11,6 @@
             $team=$_POST['team'];
             $admin_name = $_POST['admin_name'];
 
-           // $team='chaitanya';
-           // $admin_name ='ram bagade';
             
             http_response_code(200);
             $query ="SELECT * FROM `cashbook` WHERE team='$team' AND  user_name ='$admin_name' ";

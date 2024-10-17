@@ -22,7 +22,7 @@ if (mysqli_connect_error()) {
         $amount_cash = -$amount;
         $note = "Transfered amount " . $amount . " To " . $admin2 . " From In your Bank Account";
 
-        $sqlcashbook = "INSERT INTO `cashbook` (`id`, `user_name`, `amount`, `note`, `team`) VALUES (NULL, '$admin1', '$amount_cash', '$note', '$team')";
+        $sqlcashbook = "INSERT INTO `cashbook` (`id`, `user_name`, `amount`, `note`, `team`,`last_paid_date`) VALUES (NULL, '$admin1', '$amount_cash', '$note', '$team',now())";
         $result_cashbook = mysqli_query($conn, $sqlcashbook);
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -31,7 +31,7 @@ if (mysqli_connect_error()) {
         $amount_cash = $amount;
         $note = "Get amount " . $amount . " From " . $admin1 . " In your Bank Account";
 
-        $sqlcashbook = "INSERT INTO `cashbook` (`id`, `user_name`, `amount`, `note`, `team`) VALUES (NULL, '$admin2', '$amount_cash', '$note', '$team')";
+        $sqlcashbook = "INSERT INTO `cashbook` (`id`, `user_name`, `amount`, `note`, `team`,`last_paid_date`) VALUES (NULL, '$admin2', '$amount_cash', '$note', '$team',now())";
         $result_cashbook = mysqli_query($conn, $sqlcashbook);
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         http_response_code(200);

@@ -23,14 +23,16 @@ create table penalty(
         penalty int,
         team varchar(30),
         Date varchar(10),
-        note text
+        note text,
+        last_paid_date Date  
     );
 create table expendature(
         id int PRIMARY key AUTO_INCREMENT, 
         expendature int,
         team varchar(30),
         Date varchar(10),
-        note text
+        note text,
+        last_paid_date Date  
  );
 
  create table loan(
@@ -57,7 +59,8 @@ create table expendature(
     user_name varchar(30),
     amount bigint,
     note text,
-    team varchar(30)
+    team varchar(30),
+    last_paid_date Date  
 );
 
 Create table adminname(
@@ -75,5 +78,6 @@ create table remuneration(
         remuneration int,
         team varchar(30),
         Date varchar(10),
-        note text
+        note text,
+        last_paid_date Date  
  );

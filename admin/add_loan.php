@@ -59,10 +59,21 @@ if (mysqli_connect_error()) {
 
 
 
+         ///////////////////////////// adding cashbook entry ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+         $adminNumber = $_POST['mobile_no'];
+         $adminName = $_POST['admin_name'];
+         $amount_cash = -$amount;
+
+         $note = "Substract Loan Of Member " . $name . " " . $amount_cash . " from your Bank Account";
+
+         $sqlcashbook = "INSERT INTO `cashbook` (`id`, `user_name`, `amount`, `note`, `team`,`last_paid_date`) VALUES (NULL, '$adminName', '$amount_cash', '$note','$team',now())";
+         $result_cashbook = mysqli_query($conn, $sqlcashbook);
+         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
-/////////////////Email code block/////////////////////////
+         /////////////////Email code block/////////////////////////
          $html = '<html>
       <body style="font-size:20px;padding:0px;background-color: rgb(231, 248, 227);">
      <div style=""><b>Thank you for getting loan from sjh production, You Have Get The Loan of ' . $amount . ' Rupees If not then contact to the manager.</b></div>
@@ -111,35 +122,22 @@ if (mysqli_connect_error()) {
             $email = $row['email_id'];
          }
          smtp_mailer($email, 'You Geted the Loan from sjh', $html);
-        ////////////////////// end email ////////////////////
-         
-     ///////////////////////////// adding cashbook entry ///////////////////////////////////////////////////////////////////////////////////////////////////////////
-    
-      $adminNumber = $_POST['mobile_no'];
-      $adminName = $_POST['admin_name'];
-      $amount_cash= -$amount;
-     
-      $note="Substract Loan Of Member ".$name." ".$amount_cash." from your Bank Account";
-
-      $sqlcashbook = "INSERT INTO `cashbook` (`id`, `user_name`, `amount`, `note`, `team`) VALUES (NULL, '$adminName', '$amount_cash', '$note','$team')";
-      $result_cashbook = mysqli_query($conn, $sqlcashbook);
-      //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-      
+         ////////////////////// end email ////////////////////
 
 
-         http_response_code(200); 
+
+
+         http_response_code(200);
          $conn->close();
          echo $res;
 
-      }
-      else{
-         http_response_code(202); 
+      } else {
+         http_response_code(202);
          echo "you are not authorized please logout and login repeat";
          $conn->close();
       }
-   }
-   else{
-      http_response_code(202); 
+   } else {
+      http_response_code(202);
       echo "you are not authorized please logout and login repeat";
       $conn->close();
    }

@@ -178,7 +178,7 @@ if (mysqli_connect_error()) {
 
                 $note = "Add Add Intrest " . $loan_amt_intrest_set . " and Loan " . $loan_amt_return_set . " amount return by Member " . $name . " In your Bank Account";
 
-                $sqlcashbook = "INSERT INTO `cashbook` (`id`, `user_name`, `amount`, `note`, `team`) VALUES (NULL, '$adminName', '$amount_cash', '$note','$team')";
+                $sqlcashbook = "INSERT INTO `cashbook` (`id`, `user_name`, `amount`, `note`, `team`,`last_paid_date`) VALUES (NULL, '$adminName', '$amount_cash', '$note','$team',now())";
                 $result_cashbook = mysqli_query($conn, $sqlcashbook);
                 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

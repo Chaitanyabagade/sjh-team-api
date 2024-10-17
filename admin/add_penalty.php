@@ -25,7 +25,7 @@ if (mysqli_connect_error()) {
         if ($rowcheck['permision']) {
 
 
-            $sql = "INSERT INTO `penalty` (`id`, `user_name`, `penalty`, `team`, `Date`, `note`) VALUES (NULL, '$name', '$amount', '$team', '$date', '$note');";
+            $sql = "INSERT INTO `penalty` (`id`, `user_name`, `penalty`, `team`, `Date`, `note` ,`last_paid_date`) VALUES (NULL, '$name', '$amount', '$team', '$date', '$note',now());";
 
             $res = mysqli_query($conn, $sql);
 
@@ -55,7 +55,7 @@ if (mysqli_connect_error()) {
 
             $note = "Add penalty " . $amount . " of Member ".$name." In your Bank Account";
 
-            $sqlcashbook = "INSERT INTO `cashbook` (`id`, `user_name`, `amount`, `note`, `team`) VALUES (NULL, '$adminName', '$amount_cash', '$note','$team')";
+            $sqlcashbook = "INSERT INTO `cashbook` (`id`, `user_name`, `amount`, `note`, `team`,`last_paid_date`) VALUES (NULL, '$adminName', '$amount_cash', '$note','$team',now())";
             $result_cashbook = mysqli_query($conn, $sqlcashbook);
             //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

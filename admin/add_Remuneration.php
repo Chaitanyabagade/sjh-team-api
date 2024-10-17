@@ -24,7 +24,7 @@ if (mysqli_connect_error()) {
       if ($rowcheck['permision']) {
 
 
-         $sql = "INSERT INTO `remuneration` (`id`, `remuneration`, `team`, `Date`, `note`) VALUES (NULL, '$amount', '$team', '$date', '$note')";
+         $sql = "INSERT INTO `remuneration` (`id`, `remuneration`, `team`, `Date`, `note`,`last_paid_date`) VALUES (NULL, '$amount', '$team', '$date', '$note',now())";
 
          $res = mysqli_query($conn, $sql);
          echo $res;

@@ -24,7 +24,7 @@ if (mysqli_connect_error()) {
       if ($rowcheck['permision']) {
 
 
-         $sql = "INSERT INTO `expendature` (`id`, `expendature`, `team`, `Date`, `note`) VALUES (NULL, '$amount', '$team', '$date', '$note')";
+         $sql = "INSERT INTO `expendature` (`id`, `expendature`, `team`, `Date`, `note`,`last_paid_date`) VALUES (NULL, '$amount', '$team', '$date', '$note',now())";
 
          $res = mysqli_query($conn, $sql);
          echo $res;
@@ -36,7 +36,7 @@ if (mysqli_connect_error()) {
 
          $note = "Substract " . $amount . " expendature  for " . $note . " From your Bank Account";
 
-         $sqlcashbook = "INSERT INTO `cashbook` (`id`, `user_name`, `amount`, `note`, `team`) VALUES (NULL, '$adminName', '$amount_cash', '$note','$team')";
+         $sqlcashbook = "INSERT INTO `cashbook` (`id`, `user_name`, `amount`, `note`, `team`,`last_paid_date`) VALUES (NULL, '$adminName', '$amount_cash', '$note','$team',now())";
          $result_cashbook = mysqli_query($conn, $sqlcashbook);
          //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

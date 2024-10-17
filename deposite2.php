@@ -9,7 +9,7 @@
      }
      else{ 
             $team=$_POST['name'];
-           
+            
             http_response_code(200);
             $query ="SELECT * FROM `deposite` WHERE team='$team'";
             $stmt=$conn->prepare($query);

@@ -11,7 +11,7 @@
             $team=$_POST['name'];
           
              http_response_code(200);
-            $query ="SELECT remuneration,team, Date, note FROM `remuneration` WHERE team='$team'";
+            $query ="SELECT * FROM `remuneration` WHERE team='$team'";
             $stmt=$conn->prepare($query);
             $stmt->execute();
             $resultSet = $stmt->get_result();
