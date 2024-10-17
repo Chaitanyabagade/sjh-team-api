@@ -26,7 +26,10 @@ else {
 
       $sql = "UPDATE `deposite` set deposite=('$amount'+(select deposite from `deposite` where user_name='$name' AND team='$team')) where user_name='$name' AND team='$team'";
       $res = mysqli_query($conn, $sql);
-
+        
+      //update date
+      $sql2 = "UPDATE `deposite` set last_paid_date= Now() where user_name='$name' AND team='$team'";
+      $res2 = mysqli_query($conn, $sql2);
 
       //// for getting the eamil id///////////////////////////
 
